@@ -70,8 +70,6 @@ module.exports = (options) => ({
       },
     }),
     new webpack.NamedModulesPlugin(),
-    // Ignore all locale files of moment.js
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     extractLESS,
   ]),
   resolve: {
