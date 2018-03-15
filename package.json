@@ -1,0 +1,157 @@
+{
+  "name": "react-component-boilerplate",
+  "version": "1.0.0",
+  "description": "A Project template for React & MirrorJS.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sailingcai/react-boilerplate"
+  },
+  "engines": {
+    "npm": ">=3",
+    "node": ">=5"
+  },
+  "author": "Sailing Cai",
+  "license": "MIT",
+  "scripts": {
+    "setup": "node ./internals/scripts/setup.js",
+    "npmcheckversion": "node ./internals/scripts/npmcheckversion.js",
+    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --progress --hide-modules --display-optimization-bailout",
+    "build:clean": "rimraf ./build"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ],
+      "react",
+      "stage-0"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "react-hot-loader/babel"
+        ]
+      },
+      "production": {
+        "only": [
+          "app"
+        ],
+        "plugins": [
+          "transform-react-remove-prop-types",
+          "transform-react-constant-elements",
+          "transform-react-inline-elements"
+        ]
+      },
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs",
+          "dynamic-import-node"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!app/**/*.test.{js,jsx}",
+      "!app/*/RbGenerated*/*.{js,jsx}",
+      "!app/index.js",
+      "!app/global-styles.js",
+      "!app/*/*/Loadable.{js,jsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ],
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/image.js"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
+  "theme": "./app/assets/css/themes/default.js",
+  "dependencies": {
+    "antd": "^3.2.3",
+    "babel-plugin-import": "^1.6.6",
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.5",
+    "cross-env": "5.1.3",
+    "immutable": "^3.8.2",
+    "invariant": "2.2.3",
+    "lodash": "4.17.5",
+    "minimist": "1.2.0",
+    "prop-types": "15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sanitize.css": "4.1.0"
+  },
+  "devDependencies": {
+    "add-asset-html-webpack-plugin": "2.1.3",
+    "autoprefix": "^1.0.1",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.2.2",
+    "babel-loader": "7.1.3",
+    "babel-plugin-dynamic-import-node": "1.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.0",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.13",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "circular-dependency-plugin": "4.4.0",
+    "clean-webpack-plugin": "^0.1.18",
+    "copy-webpack-plugin": "^4.5.0",
+    "coveralls": "2.13.1",
+    "css-loader": "0.28.10",
+    "enzyme": "3.3.0",
+    "eslint": "4.18.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-import-resolver-webpack": "0.8.4",
+    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "exports-loader": "0.6.4",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "1.1.11",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.0.4",
+    "imports-loader": "0.8.0",
+    "jest-cli": "22.4.2",
+    "less": "~2.6.0",
+    "less-loader": "~2.2.0",
+    "less-plugin-npm-import": "^2.1.0",
+    "node-plop": "0.9.0",
+    "null-loader": "0.1.1",
+    "plop": "1.9.1",
+    "postcss": "^5.0.19",
+    "postcss-loader": "^2.0.9",
+    "react-hot-loader": "^4.0.0",
+    "react-test-renderer": "16.2.0",
+    "rimraf": "2.6.2",
+    "rucksack-css": "~0.8.5",
+    "shelljs": "0.8.1",
+    "string-replace-loader": "^2.1.1",
+    "style-loader": "0.20.2",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "url-loader": "0.6.2",
+    "webpack": "3.11.0",
+    "webpack-dev-middleware": "2.0.6",
+    "webpack-dev-server": "2.11.2",
+    "webpack-hot-middleware": "2.21.2"
+  }
+}
