@@ -37,7 +37,7 @@
       },
       "production": {
         "only": [
-          "app"
+          "src"
         ],
         "plugins": [
           "transform-react-remove-prop-types",
@@ -55,12 +55,12 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "app/**/*.{js,jsx}",
-      "!app/**/*.test.{js,jsx}",
-      "!app/*/RbGenerated*/*.{js,jsx}",
-      "!app/index.js",
-      "!app/global-styles.js",
-      "!app/*/*/Loadable.{js,jsx}"
+      "src/**/*.{js,jsx}",
+      "!src/**/*.test.{js,jsx}",
+      "!src/*/RbGenerated*/*.{js,jsx}",
+      "!src/index.js",
+      "!src/global-styles.js",
+      "!src/*/*/Loadable.{js,jsx}"
     ],
     "coverageThreshold": {
       "global": {
@@ -72,7 +72,7 @@
     },
     "moduleDirectories": [
       "node_modules",
-      "app"
+      "src"
     ],
     "moduleNameMapper": {
       ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
@@ -81,7 +81,6 @@
     "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
     "testRegex": "tests/.*\\.test\\.js$"
   },
-  "theme": "./app/assets/css/themes/default.js",
   "dependencies": {
     "antd": "^3.2.3",
     "babel-plugin-import": "^1.6.6",
