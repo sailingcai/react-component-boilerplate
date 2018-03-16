@@ -7,11 +7,18 @@ module.exports = require('./webpack.base.babel')({
   entry: [
     path.join(process.cwd(), 'src/index.js'),
   ],
-
-  // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2',
+  },
+  // antd的便捷导入支持
+  babelQuery: {
+    plugins: [
+      ['import', {
+        libraryName: 'antd',
+        style: true,
+      }],
+    ],
   },
 
   plugins: [

@@ -23,15 +23,10 @@ module.exports = (options) => ({
     rules: [
       {
         test: /\.js$/, // Transform all .js files required somewhere with Babel
-        loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          plugins: [
-            ['import', {
-              libraryName: 'antd',
-              style: true,
-            }],
-          ],
+        use: {
+          loader: 'babel-loader',
+          options: options.babelQuery,
         },
       },
       {
